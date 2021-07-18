@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreatePostsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Запускает миграции
      *
      * @return void
      */
@@ -15,12 +15,14 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Переворачивает миграции
      *
      * @return void
      */
