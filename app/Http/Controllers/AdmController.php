@@ -26,7 +26,7 @@ class AdmController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -37,7 +37,16 @@ class AdmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+            ]);
+
+            Adm::create($request->all());
+
+            return redirect()->route('admin.index')->with('success','Post created successfully.');
+        }
     }
 
     /**
@@ -48,7 +57,7 @@ class AdmController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.show',compact('admins'));
     }
 
     /**
@@ -57,9 +66,10 @@ class AdmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Adm $admin)
     {
-        //
+        return view('admin.edit',compact('admin'));
+
     }
 
     /**
@@ -69,9 +79,16 @@ class AdmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Adm $admin)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $admin->update($request->all());
+
+        return redirect()->route('admin.index')->with('success','Post updated successfully');
     }
 
     /**
@@ -80,8 +97,11 @@ class AdmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Adm $admin)
     {
-        //
+        $admin->delete();
+
+        return redirect()->route('admin.index')
+            ->with('success','post deleted successfully');
     }
 }

@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <?php header('location: admin');?>
                 </div>
             </div>
         </div>

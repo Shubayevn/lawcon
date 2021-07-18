@@ -18,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Auth::routes();
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
-Route::resource('posts', PostController::class);
-Route::resource('admin', AdmController::class);
+Route::resource('posts', PostController::class)->middleware('auth');
+Route::resource('admin', AdmController::class)->middleware('auth');
 //Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'BaseController@index')->name('index');

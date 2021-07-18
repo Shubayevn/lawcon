@@ -15,6 +15,8 @@ class CreateAdmsTable extends Migration
     {
         Schema::create('adms', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

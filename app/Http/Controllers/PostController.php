@@ -50,7 +50,7 @@ class PostController extends Controller
     /**
      * Отображает указанный ресурс.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -61,7 +61,7 @@ class PostController extends Controller
     /**
      * Выводит форму для редактирования указанного ресурса
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -73,7 +73,7 @@ class PostController extends Controller
      * Обновляет указанный ресурс в хранилище
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
@@ -91,7 +91,7 @@ class PostController extends Controller
     /**
      * Удаляет указанный ресурс из хранилища
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)

@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Laravel 8 CRUD Example from scratch </h2>
+                <h2>Главная </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('admin.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('admin.create') }}"> Создать новый пост</a>
             </div>
         </div>
     </div>
@@ -21,8 +21,8 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>Title</th>
-            <th>Description</th>
+            <th>Название</th>
+            <th>Описание</th>
         </tr>
         @foreach ($admins as $admin)
             <tr>
