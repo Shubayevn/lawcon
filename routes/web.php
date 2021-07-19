@@ -23,6 +23,10 @@ Route::post('change-password', 'ChangePasswordController@store')->name('change.p
 
 Route::resource('posts', PostController::class)->middleware('auth');
 Route::resource('admin', AdmController::class)->middleware('auth');
-//Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/users', 'AdmController@users')->name('users');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'BaseController@index')->name('index');
+Route::get('/service', 'BaseController@service')->name('service');
+Route::get('/portfolio', 'BaseController@portfolio')->name('portfolio');
+Route::get('/about-us', 'BaseController@about_us')->name('about-us');
+Route::get('/contact', 'BaseController@contact')->name('contact');

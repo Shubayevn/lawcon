@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div>
-    service
-</div>
+    <div>
+        About us
+    </div>
 @endsection

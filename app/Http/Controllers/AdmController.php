@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\adm;
 
@@ -55,9 +56,9 @@ class AdmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Adm $admin)
     {
-        return view('admin.show',compact('admins'));
+        return view('admin.show',compact('admin'));
     }
 
     /**
@@ -103,5 +104,47 @@ class AdmController extends Controller
 
         return redirect()->route('admin.index')
             ->with('success','post deleted successfully');
+    }
+
+    public function users(User $users)
+    {
+        $users = User::all();
+        return view('admin.users', compact('users'));
+    }
+    public function destroyUser(User $users)
+    {
+        $users->delete();
+
+        return redirect()->route('admin.users')
+            ->with('success','post deleted successfully');
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createUsers()
+    {
+        return view('admin.createUsers');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeUsers(Request $request)
+    {
+        {
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+            ]);
+
+            Adm::create($request->all());
+
+            return redirect()->route('admin.index')->with('success','Post created successfully.');
+        }
     }
 }

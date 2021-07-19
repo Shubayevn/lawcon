@@ -18,7 +18,7 @@
             </a>
         </li>
         <li class="list">
-            <a href="#">
+            <a href="/users">
                 <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
                 <span class="title">Профили</span>
             </a>

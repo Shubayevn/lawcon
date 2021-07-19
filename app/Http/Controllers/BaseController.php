@@ -10,4 +10,20 @@ class BaseController extends Controller
     {
         return view('index');
     }
+    public function service()
+    {
+        return view('service');
+    }
+    public function portfolio()
+    {
+        return view('portfolio');
+    }
+    public function about_us()
+    {
+        return view('about-us');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
 }
