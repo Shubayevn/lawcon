@@ -8,7 +8,7 @@
                 <h2> Пользователи</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.index') }}"> Назад</a>
             </div>
             <div class="pull-right">
 {{--                <a class="btn btn-success" href="{{ route('admin.createUsers') }}"> Создать новый пост</a>--}}
@@ -25,6 +25,7 @@
         <tr>
             <th>Название</th>
             <th>Описание</th>
+            <th>Действия</th>
         </tr>
         @foreach ($users as $user)
             <tr>
@@ -32,11 +33,12 @@
                 <td>{{ $user->email }}</td>
                 <td>
 {{--                    <form action="{{ route('admin.destroyUser',$user->id) }}" method="POST">--}}
+                    <form action="#" method="POST">
 
-{{--                        @csrf--}}
-{{--                        @method('DELETE')--}}
-{{--                        <button type="submit" class="btn btn-danger">Delete</button>--}}
-{{--                    </form>--}}
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

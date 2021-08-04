@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\post;
 class BaseController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $posts = post::all();
+        return view('index', compact('posts'));
     }
-    public function service()
+    public function service(Post $posts)
     {
-        return view('service');
+        $posts = post::all();
+        return view('service', compact('posts'));
     }
     public function portfolio()
     {
@@ -20,7 +22,8 @@ class BaseController extends Controller
     }
     public function about_us()
     {
-        return view('about-us');
+        $posts = post::all();
+        return view('about-us', compact('posts'));
     }
     public function contact()
     {

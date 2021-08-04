@@ -34,10 +34,11 @@ body
 {
     background-color: #232c33 !important;
 }
+
 .navigation
 {
-    position: relative;
-    /*height: 500px;*/
+    position: fixed;
+    height: 100vh;
     width: 70px;
     background: #2b343b;
     box-shadow: 10px 0 0 #4187f6;

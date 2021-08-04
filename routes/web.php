@@ -21,6 +21,8 @@ Auth::routes();
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
+Route::get('/test', function (){return view('admin.test');});
+
 Route::resource('posts', PostController::class)->middleware('auth');
 Route::resource('admin', AdmController::class)->middleware('auth');
 Route::get('/users', 'AdmController@users')->name('users');

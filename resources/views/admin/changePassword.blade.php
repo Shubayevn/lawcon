@@ -1,8 +1,8 @@
 @extends('layouts.adm')
 @section('content')
-        <div class="row justify-content-center">
+        <div class="row" style="justify-content: center;">
 {{--            <div class="col-md-8">--}}
-                <div class="card">
+                <div class="card" style="width: 100%;">
                     <div class="card-header">Смена пароля</div>
 
                     <div class="card-body">
