@@ -11,6 +11,16 @@ class BaseController extends Controller
         $posts = post::all();
         return view('index', compact('posts'));
     }
+    public function funpage()
+    {
+        $posts = post::all();
+        return view('rute', compact('posts'));
+    }
+    public function rutePage()
+    {
+        $posts = post::all();
+        return view('rutes', compact('posts'));
+    }
     public function service(Post $posts)
     {
         $posts = post::all();

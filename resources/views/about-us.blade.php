@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LAWCON</title>
+    <title>{{ config('app.name', 'SaNiDa') }}</title>
 <link href="public/css/about/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="public/css/about/style.css" rel="stylesheet" type="text/css" />
 <script src="public/js/modernizr.js"></script>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <header>
-        <a href="/" class="logo">LAWCON</a>
+        <a href="/" class="logo">{{ config('app.name', 'LAWCON') }}</a>
         <div class="toggle" onclick="toggleMenu();"></div>
         <ul class="navigation">
             <li><a href="/" style="--i:1;">Главная</a></li>
@@ -35,6 +35,10 @@
             <!--- HERO HEADER WORK SLIDER --->
             <div class="row">
                 <div class="col-md-12">
+                    <div class="tag-about" style="position: absolute; text-align: center; height: 100%; padding-top: 50vh; z-index: 100000; width: 100%">
+                        <p style="font-size: 45px; font-weight: 500; text-shadow: 0 1px 5px #FFFFFF">SaNiDa</p>
+                        <p style="font-size: 35px; text-shadow: 0 0 5px #FFFFFF">Мы защитим ваш объект!</p>
+                    </div>
                     <div class="slider-bg" >
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
@@ -88,10 +92,10 @@
             <div class="row">
                 <div class="col-md-6 col-xs-12">
                     <div class="lg-col-bg" >
-                        <div class="lg-col-ttl2"> About Us </div>
-                        <div class="lg-col-wrt"> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                        <div class="lg-col-ttl2"> О нас </div>
+                        <div class="lg-col-wrt">
+                            Основная стратегия развития компании направлена на комплексную реализацию инвестиционных проектов строительства производственных и коммерческих объектов недвижимости, применение действенных технологий проектирования и строительства этих объектов, осуществление строгого контроля качества процесса строительства.
+                        </div>
                     </div>
                 </div>
 
@@ -108,10 +112,9 @@
             <div class="row">
                 <div class="col-md-6 col-xs-12">
                     <div class="lg-col-bg" >
-                        <div class="lg-col-ttl2"> Our Standarts </div>
-                        <div class="lg-col-wrt2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="lg-col-ttl2"> Основная стратегия развития </div>
+                        <div class="lg-col-wrt2">
+                            Компания направлена на комплексную реализацию инвестиционных проектов строительства производственных и коммерческих объектов недвижимости, применение действенных технологий проектирования и строительства этих объектов, осуществление строгого контроля качества процесса строительства.
                         </div>
                     </div>
                 </div>
@@ -155,14 +158,14 @@
 
                 <div class="col-md-4 col-xs-6">
                     <div class="lg-col-bg" >
-                        <div class="lg-col-ttl3">Career</div>
+                        <div class="lg-col-ttl3">Карьера</div>
                         <div class="lg-col-wrt3">jobs@yoursite</div>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-xs-6">
                     <div class="lg-col-bg" >
-                        <div class="lg-col-ttl3">Start a Project </div>
+                        <div class="lg-col-ttl3"> Свяжитесь с нами </div>
                         <div class="lg-col-wrt3">hello@yoursite</div>
                     </div>
                 </div>
@@ -206,7 +209,7 @@
             <li><a href="#" style="--i:7">Instagram</a></li>
             {{--                <li><a href="#" style="--i:8">Политика конфеденциальности</a></li>--}}
         </ul>
-        <p class="copyrightText">©Copyright LAWCON <?php echo date('Y'); ?></p>
+        <p class="copyrightText">©Copyright {{ config('app.name', 'LAWCON') }} <?php echo date('Y'); ?></p>
     </div>
 </section>
 </body>

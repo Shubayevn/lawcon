@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <header>
-        <a href="/" class="logo">LAWCON</a>
+        <a href="/" class="logo">{{ config('app.name', 'LAWCON') }}</a>
         <div class="toggle" onclick="toggleMenu();"></div>
         <ul class="navigation">
             <li><a href="/" style="--i:1;">Главная</a></li>
@@ -64,7 +64,7 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="prjct-bg" >
-                    <a target="_blank" href="https://medium.com"> <img src="public/images/img1.jpg" alt="" class="img-prjct-wrk"> </a>
+                    <a target="_blank"> <img src="public/images/img1.jpg" alt="" class="img-prjct-wrk"> </a>
                     <div class="prjct-wrt-left-wrk"> </div>
                     <div class="shw-cs2"> Post Title </div>
                     <div class="shw-cs"> Photography . Visual Design . Web Design </div>
@@ -73,7 +73,7 @@
 
             <div class="col-md-6 col-xs-12">
                 <div class="prjct-bg" >
-                    <a target="_blank" href="https://medium.com"> <img src="public/images/img4.jpg" alt="" class="img-prjct-wrk"> </a>
+                    <a target="_blank"> <img src="public/images/img4.jpg" alt="" class="img-prjct-wrk"> </a>
                     <div class="prjct-wrt-right-wrk"> </div>
                     <div class="shw-cs2"> Post Title </div>
                     <div class="shw-cs"> Photography . Visual Design . Artwork </div>
@@ -84,7 +84,7 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="prjct-bg" >
-                    <a target="_blank" href="https://medium.com"> <img src="public/images/img5.jpg" alt="" class="img-prjct-wrk"> </a>
+                    <a target="_blank"> <img src="public/images/img1.jpg" alt="" class="img-prjct-wrk"> </a>
                     <div class="prjct-wrt-left-wrk"> </div>
                     <div class="shw-cs2"> Post Title </div>
                     <div class="shw-cs"> Photography . Visual Design </div>
@@ -93,7 +93,7 @@
 
             <div class="col-md-6 col-xs-12">
                 <div class="prjct-bg" >
-                    <a target="_blank" href="https://medium.com"> <img src="public/images/img3.jpg" alt="" class="img-prjct-wrk"> </a>
+                    <a target="_blank"> <img src="public/images/img3.jpg" alt="" class="img-prjct-wrk"> </a>
                     <div class="prjct-wrt-right-wrk"> </div>
                     <div class="shw-cs2"> Post Title </div>
                     <div class="shw-cs"> Photography . Visual Design . Typography </div>
@@ -104,7 +104,7 @@
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="prjct-bg" >
-                    <a target="_blank" href="https://medium.com"> <img src="public/images/img1.jpg" alt="" class="img-prjct-wrk"> </a>
+                    <a target="_blank"> <img src="public/images/img1.jpg" alt="" class="img-prjct-wrk"> </a>
                     <div class="prjct-wrt-left-wrk"> </div>
                     <div class="shw-cs2"> Post Title </div>
                     <div class="shw-cs"> Event . Workshop </div>
@@ -113,7 +113,7 @@
 
             <div class="col-md-6 col-xs-12">
                 <div class="prjct-bg" >
-                    <a target="_blank" href="https://medium.com"> <img src="public/images/img2.jpg" alt="" class="img-prjct-wrk"> </a>
+                    <a target="_blank" > <img src="public/images/img2.jpg" alt="" class="img-prjct-wrk"> </a>
                     <div class="prjct-wrt-right-wrk"> </div>
                     <div class="shw-cs2"> Post Title </div>
                     <div class="shw-cs"> Branding . Identity </div>
@@ -158,7 +158,7 @@
             <li><a href="#" style="--i:7">Instagram</a></li>
             {{--                <li><a href="#" style="--i:8">Политика конфеденциальности</a></li>--}}
         </ul>
-        <p class="copyrightText">©Copyright LAWCON <?php echo date('Y'); ?></p>
+        <p class="copyrightText">©Copyright {{ config('app.name', 'LAWCON') }} <?php echo date('Y'); ?></p>
     </div>
 </section>
 </body>
