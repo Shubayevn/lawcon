@@ -1,12 +1,5 @@
 @extends('layouts.main')
 @section('content')
-        <div class="main-page">
-            <div class="main-circle">
-                <div class="nav-main">
-                    <img src="/public/images/covers/d1.jpg">
-                </div>
-            </div>
-        </div>
     <p class="contName">Мы предлагаем</p>
     <div class="container">
         <div class="box" style="--i:3;">
