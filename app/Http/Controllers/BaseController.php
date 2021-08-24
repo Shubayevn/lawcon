@@ -11,6 +11,10 @@ class BaseController extends Controller
         $posts = post::all();
         return view('index', compact('posts'));
     }
+    public function sample()
+    {
+        return view('sample');
+    }
     public function funpage()
     {
         $posts = post::all();

@@ -7,6 +7,6 @@
     <link href="{{ asset('css/adm.css') }}" rel="stylesheet">
 </head>
 <body>
-
+@yield('content')
 </body>
 </html>

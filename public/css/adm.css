@@ -667,11 +667,11 @@ END LINE-CHART by @kseso https://codepen.io/Kseso/pen/phiyL
     margin-left: 12px;
 }
 .left-container .social {
-    height: 110px;
+    height: 75px;
 }
 .left-container .social li {
     width: 75px;
-    height: 110px;
+    height: 75px;
 }
 .left-container .social li .icon {
     text-align: center;
@@ -1030,7 +1030,7 @@ END LINE-CHART by @kseso https://codepen.io/Kseso/pen/phiyL
     background: linear-gradient(to right, #4fc4f6 43%,#50597b 43%); /* W3C */
 }
 .calendar-day {
-    height: 320px;
+    height: 250px;
     background: #3468af;
 }
 .calendar-day .titular {

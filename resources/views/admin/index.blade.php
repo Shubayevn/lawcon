@@ -1,445 +1,177 @@
-@extends('layouts.adm')
-
+@extends('layouts/adm')
 @section('content')
 
-{{--    <div class="row">--}}
-{{--        <div class="col-lg-12 margin-tb">--}}
-{{--            <div class="pull-left">--}}
-{{--                <h2>Главная </h2>--}}
-{{--            </div>--}}
-{{--            <div class="pull-right">--}}
-{{--                <a class="btn btn-success" href="{{ route('admin.create') }}"> Создать новый пост</a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="logo-admin">
+        {{ config('app.name', 'LAWCON') }}
+    </div>
+    <div class="main-container">
 
-{{--    @if ($message = Session::get('success'))--}}
-{{--        <div class="alert alert-success">--}}
-{{--            <p>{{ $message }}</p>--}}
-{{--        </div>--}}
-{{--    @endif--}}
-
-{{--    <table class="table table-bordered">--}}
-{{--        <tr>--}}
-{{--            <th>Название</th>--}}
-{{--            <th>Описание</th>--}}
-{{--        </tr>--}}
-{{--        @foreach ($admins as $admin)--}}
-{{--            <tr>--}}
-{{--                <td>{{ $admin->title }}</td>--}}
-{{--                <td>{{ $admin->description }}</td>--}}
-{{--                <td>--}}
-{{--                    <a class="btn btn-info" href="{{ route('admin.show',$admin->id) }}">Show</a>--}}
-{{--                    <a class="btn btn-primary" href="{{ route('admin.edit',$admin->id) }}">Edit</a>--}}
-{{--                    <form action="{{ route('admin.destroy',$admin->id) }}" method="POST">--}}
-
-{{--                        @csrf--}}
-{{--                        @method('DELETE')--}}
-{{--                        <button type="submit" class="btn btn-danger">Delete</button>--}}
-{{--                    </form>--}}
-{{--                </td>--}}
-{{--            </tr>--}}
-{{--        @endforeach--}}
-{{--    </table>--}}
-<div class="page-flex">
-    <div class="main-wrapper">
-
-        <!-- ! Main -->
-        <main class="main users chart-page" id="skip-target">
-            <div class="container">
-                <h2 class="main-title" style="color: #FFFFFF !important;">Приборная панель</h2>
-                <div class="row stat-cards">
-                    <div class="col-md-6 col-xl-3">
-                        <article class="stat-cards-item">
-                            <div class="stat-cards-icon primary">
-                                <i data-feather="bar-chart-2" aria-hidden="true"></i>
-                            </div>
-                            <div class="stat-cards-info">
-                                <p class="stat-cards-info__num">1478 286</p>
-                                <p class="stat-cards-info__title">Общ. посетителей</p>
-                                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit success">
-                    <i data-feather="trending-up" aria-hidden="true"></i>4.07%
-                  </span>
-                                    Last month
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-xl-3">
-                        <article class="stat-cards-item">
-                            <div class="stat-cards-icon warning">
-                                <i data-feather="file" aria-hidden="true"></i>
-                            </div>
-                            <div class="stat-cards-info">
-                                <p class="stat-cards-info__num">1478 286</p>
-                                <p class="stat-cards-info__title">Total visits</p>
-                                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit success">
-                    <i data-feather="trending-up" aria-hidden="true"></i>0.24%
-                  </span>
-                                    Last month
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-xl-3">
-                        <article class="stat-cards-item">
-                            <div class="stat-cards-icon purple">
-                                <i data-feather="file" aria-hidden="true"></i>
-                            </div>
-                            <div class="stat-cards-info">
-                                <p class="stat-cards-info__num">1478 286</p>
-                                <p class="stat-cards-info__title">Total visits</p>
-                                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit danger">
-                    <i data-feather="trending-down" aria-hidden="true"></i>1.64%
-                  </span>
-                                    Last month
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-xl-3">
-                        <article class="stat-cards-item">
-                            <div class="stat-cards-icon success">
-                                <i data-feather="feather" aria-hidden="true"></i>
-                            </div>
-                            <div class="stat-cards-info">
-                                <p class="stat-cards-info__num">1478 286</p>
-                                <p class="stat-cards-info__title">Total visits</p>
-                                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit warning">
-                    <i data-feather="trending-up" aria-hidden="true"></i>0.00%
-                  </span>
-                                    Last month
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-9">
-                        <div class="users-table table-wrapper">
-                            <table class="posts-table">
-                                <thead>
-                                <tr class="users-table-info">
-                                    <th>
-                                        <label class="users-table__checkbox ms-20">
-                                            <input type="checkbox" class="check-all">Thumbnail
-                                        </label>
-                                    </th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="users-table__checkbox">
-                                            <input type="checkbox" class="check">
-                                            <div class="categories-table-img">
-                                                <picture><source srcset="./images/categories/01.webp" type="image/webp"><img src="./images/categories/01.jpg" alt="category"></picture>
-                                            </div>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        Starting your traveling blog with Vasco
-                                    </td>
-                                    <td>
-                                        <div class="pages-table-img">
-                                            <picture><source srcset="./images/avatar/avatar-face-04.webp" type="image/webp"><img src="./images/avatar/avatar-face-04.png" alt="User Name"></picture>
-                                            Jenny Wilson
-                                        </div>
-                                    </td>
-                                    <td><span class="badge-pending">Pending</span></td>
-                                    <td>17.04.2021</td>
-                                    <td>
-                      <span class="p-relative">
-                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                          <div class="sr-only">More info</div>
-                          <i data-feather="more-horizontal" aria-hidden="true"></i>
-                        </button>
-                        <ul class="users-item-dropdown dropdown">
-                          <li><a href="##">Edit</a></li>
-                          <li><a href="##">Quick edit</a></li>
-                          <li><a href="##">Trash</a></li>
-                        </ul>
-                      </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="users-table__checkbox">
-                                            <input type="checkbox" class="check">
-                                            <div class="categories-table-img">
-                                                <picture><source srcset="./images/categories/02.webp" type="image/webp"><img src="./images/categories/02.jpg" alt="category"></picture>
-                                            </div>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        Start a blog to reach your creative peak
-                                    </td>
-                                    <td>
-                                        <div class="pages-table-img">
-                                            <picture><source srcset="./images/avatar/avatar-face-03.webp" type="image/webp"><img src="./images/avatar/avatar-face-03.png" alt="User Name"></picture>
-                                            Annette Black
-                                        </div>
-                                    </td>
-                                    <td><span class="badge-pending">Pending</span></td>
-                                    <td>23.04.2021</td>
-                                    <td>
-                      <span class="p-relative">
-                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                          <div class="sr-only">More info</div>
-                          <i data-feather="more-horizontal" aria-hidden="true"></i>
-                        </button>
-                        <ul class="users-item-dropdown dropdown">
-                          <li><a href="##">Edit</a></li>
-                          <li><a href="##">Quick edit</a></li>
-                          <li><a href="##">Trash</a></li>
-                        </ul>
-                      </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="users-table__checkbox">
-                                            <input type="checkbox" class="check">
-                                            <div class="categories-table-img">
-                                                <picture><source srcset="./images/categories/03.webp" type="image/webp"><img src="./images/categories/03.jpg" alt="category"></picture>
-                                            </div>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        Helping a local business reinvent itself
-                                    </td>
-                                    <td>
-                                        <div class="pages-table-img">
-                                            <picture><source srcset="./images/avatar/avatar-face-02.webp" type="image/webp"><img src="./images/avatar/avatar-face-02.png" alt="User Name"></picture>
-                                            Kathryn Murphy
-                                        </div>
-                                    </td>
-                                    <td><span class="badge-active">Active</span></td>
-                                    <td>17.04.2021</td>
-                                    <td>
-                      <span class="p-relative">
-                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                          <div class="sr-only">More info</div>
-                          <i data-feather="more-horizontal" aria-hidden="true"></i>
-                        </button>
-                        <ul class="users-item-dropdown dropdown">
-                          <li><a href="##">Edit</a></li>
-                          <li><a href="##">Quick edit</a></li>
-                          <li><a href="##">Trash</a></li>
-                        </ul>
-                      </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="users-table__checkbox">
-                                            <input type="checkbox" class="check">
-                                            <div class="categories-table-img">
-                                                <picture><source srcset="./images/categories/04.webp" type="image/webp"><img src="./images/categories/04.jpg" alt="category"></picture>
-                                            </div>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        Caring is the new marketing
-                                    </td>
-                                    <td>
-                                        <div class="pages-table-img">
-                                            <picture><source srcset="./images/avatar/avatar-face-05.webp" type="image/webp"><img src="./images/avatar/avatar-face-05.png" alt="User Name"></picture>
-                                            Guy Hawkins
-                                        </div>
-                                    </td>
-                                    <td><span class="badge-active">Active</span></td>
-                                    <td>17.04.2021</td>
-                                    <td>
-                      <span class="p-relative">
-                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                          <div class="sr-only">More info</div>
-                          <i data-feather="more-horizontal" aria-hidden="true"></i>
-                        </button>
-                        <ul class="users-item-dropdown dropdown">
-                          <li><a href="##">Edit</a></li>
-                          <li><a href="##">Quick edit</a></li>
-                          <li><a href="##">Trash</a></li>
-                        </ul>
-                      </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="users-table__checkbox">
-                                            <input type="checkbox" class="check">
-                                            <div class="categories-table-img">
-                                                <picture><source srcset="./images/categories/01.webp" type="image/webp"><img src="./images/categories/01.jpg" alt="category"></picture>
-                                            </div>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        How to build a loyal community online and offline
-                                    </td>
-                                    <td>
-                                        <div class="pages-table-img">
-                                            <picture><source srcset="./images/avatar/avatar-face-03.webp" type="image/webp"><img src="./images/avatar/avatar-face-03.png" alt="User Name"></picture>
-                                            Robert Fox
-                                        </div>
-                                    </td>
-                                    <td><span class="badge-active">Active</span></td>
-                                    <td>17.04.2021</td>
-                                    <td>
-                      <span class="p-relative">
-                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                          <div class="sr-only">More info</div>
-                          <i data-feather="more-horizontal" aria-hidden="true"></i>
-                        </button>
-                        <ul class="users-item-dropdown dropdown">
-                          <li><a href="##">Edit</a></li>
-                          <li><a href="##">Quick edit</a></li>
-                          <li><a href="##">Trash</a></li>
-                        </ul>
-                      </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="users-table__checkbox">
-                                            <input type="checkbox" class="check">
-                                            <div class="categories-table-img">
-                                                <picture><source srcset="./images/categories/03.webp" type="image/webp"><img src="./images/categories/03.jpg" alt="category"></picture>
-                                            </div>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        How to build a loyal community online and offline
-                                    </td>
-                                    <td>
-                                        <div class="pages-table-img">
-                                            <picture><source srcset="./images/avatar/avatar-face-03.webp" type="image/webp"><img src="./images/avatar/avatar-face-03.png" alt="User Name"></picture>
-                                            Robert Fox
-                                        </div>
-                                    </td>
-                                    <td><span class="badge-active">Active</span></td>
-                                    <td>17.04.2021</td>
-                                    <td>
-                      <span class="p-relative">
-                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                          <div class="sr-only">More info</div>
-                          <i data-feather="more-horizontal" aria-hidden="true"></i>
-                        </button>
-                        <ul class="users-item-dropdown dropdown">
-                          <li><a href="##">Edit</a></li>
-                          <li><a href="##">Quick edit</a></li>
-                          <li><a href="##">Trash</a></li>
-                        </ul>
-                      </span>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-
-                        <article class="white-block">
-                            <div class="top-cat-title">
-                                <h3>Top categories</h3>
-                                <p>28 Categories, 1400 Posts</p>
-                            </div>
-                            <ul class="top-cat-list">
-                                <li>
-                                    <a href="##">
-                                        <div class="top-cat-list__title">
-                                            Lifestyle <span>8.2k</span>
-                                        </div>
-                                        <div class="top-cat-list__subtitle">
-                                            Dailiy lifestyle articles <span class="purple">+472</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="top-cat-list__title">
-                                            Tutorials <span>8.2k</span>
-                                        </div>
-                                        <div class="top-cat-list__subtitle">
-                                            Coding tutorials <span class="blue">+472</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="top-cat-list__title">
-                                            Technology <span>8.2k</span>
-                                        </div>
-                                        <div class="top-cat-list__subtitle">
-                                            Dailiy technology articles <span class="danger">+472</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="top-cat-list__title">
-                                            UX design <span>8.2k</span>
-                                        </div>
-                                        <div class="top-cat-list__subtitle">
-                                            UX design tips <span class="success">+472</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="top-cat-list__title">
-                                            Interaction tips <span>8.2k</span>
-                                        </div>
-                                        <div class="top-cat-list__subtitle">
-                                            Interaction articles <span class="warning">+472</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="top-cat-list__title">
-                                            App development <span>8.2k</span>
-                                        </div>
-                                        <div class="top-cat-list__subtitle">
-                                            Mobile development articles <span class="warning">+472</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="top-cat-list__title">
-                                            Nature <span>8.2k</span>
-                                        </div>
-                                        <div class="top-cat-list__subtitle">
-                                            Wildlife animal articles <span class="warning">+472</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="##">
-                                        <div class="top-cat-list__title">
-                                            Geography <span>8.2k</span>
-                                        </div>
-                                        <div class="top-cat-list__subtitle">
-                                            Geography articles <span class="primary">+472</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </article>
-                    </div>
+        <!-- HEADER -->
+        <header class="block">
+            <ul class="header-menu horizontal-list">
+                <li>
+                    <a class="header-menu-tab" href="#1"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="#2"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="#3"><span class="icon fontawesome-envelope scnd-font-color"></span>Messages</a>
+                    <a class="header-menu-number" href="#4">5</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="#5"><span class="icon fontawesome-star-empty scnd-font-color"></span>Favorites</a>
+                </li>
+            </ul>
+            <div class="profile-menu">
+                <p>Me <a href="#26"><span class="entypo-down-open scnd-font-color"></span></a></p>
+                <div class="profile-picture small-profile-picture">
+                    <img width="40px" alt="Anne Hathaway picture" src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg">
                 </div>
             </div>
-        </main>
-    </div>
-</div>
+        </header>
+
+        <!-- LEFT-CONTAINER -->
+        <div class="left-container container">
+            <div class="menu-box block"> <!-- MENU BOX (LEFT-CONTAINER) -->
+                <h2 class="titular">MENU</h2>
+                <ul class="menu-box-menu">
+                    <li>
+                        <a class="menu-box-tab" href="#6"><span class="icon fontawesome-envelope scnd-font-color"></span>Посты</a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#8"><span class="icon entypo-paper-plane scnd-font-color"></span>Invites</a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#10"><span class="icon entypo-calendar scnd-font-color"></span>Events</a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#12"><span class="icon entypo-cog scnd-font-color"></span>Настройки</a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#13"><sapn class="icon entypo-chart-line scnd-font-color"></sapn>Статистика</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="donut-chart-block block"> <!-- DONUT CHART BLOCK (LEFT-CONTAINER) -->
+                <h2 class="titular">OS AUDIENCE STATS</h2>
+                <div class="donut-chart">
+                    <!-- DONUT-CHART by @kseso https://codepen.io/Kseso/pen/phiyL -->
+                    <div id="porcion1" class="recorte"><div class="quesito ios" data-rel="21"></div></div>
+                    <div id="porcion2" class="recorte"><div class="quesito mac" data-rel="39"></div></div>
+                    <div id="porcion3" class="recorte"><div class="quesito win" data-rel="31"></div></div>
+                    <div id="porcionFin" class="recorte"><div class="quesito linux" data-rel="9"></div></div>
+                    <!-- END DONUT-CHART by @kseso https://codepen.io/Kseso/pen/phiyL -->
+                    <p class="center-date">JUNE<br><span class="scnd-font-color">2013</span></p>
+                </div>
+                <ul class="os-percentages horizontal-list">
+                    <li>
+                        <p class="ios os scnd-font-color">iOS</p>
+                        <p class="os-percentage">21<sup>%</sup></p>
+                    </li>
+                    <li>
+                        <p class="mac os scnd-font-color">Mac</p>
+                        <p class="os-percentage">48<sup>%</sup></p>
+                    </li>
+                    <li>
+                        <p class="linux os scnd-font-color">Linux</p>
+                        <p class="os-percentage">9<sup>%</sup></p>
+                    </li>
+                    <li>
+                        <p class="win os scnd-font-color">Win</p>
+                        <p class="os-percentage">32<sup>%</sup></p>
+                    </li>
+                </ul>
+            </div>
+            <ul class="social horizontal-list block"> <!-- SOCIAL (LEFT-CONTAINER) -->
+                <li class="facebook"><p class="icon"><span class="zocial-facebook"></span></p></li>
+                <li class="twitter"><p class="icon"><span class="zocial-twitter"></span></p></li>
+                <li class="googleplus"><p class="icon"><span class="zocial-googleplus"></span></p></li>
+                <li class="mailbox"><p class="icon"><span class="fontawesome-envelope"></span></p></li>
+            </ul>
+        </div>
+
+        <!-- MIDDLE-CONTAINER -->
+        <div class="middle-container container">
+            <div class="profile block"> <!-- PROFILE (MIDDLE-CONTAINER) -->
+                <a class="add-button" href="#28"><span class="icon entypo-plus scnd-font-color"></span></a>
+                <div class="profile-picture big-profile-picture clear">
+                    <img width="150px" alt="" src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg" >
+                </div>
+                <h1 class="user-name">Shubayevn</h1>
+                <div class="profile-description">
+                    <p class="scnd-font-color">Должность</p>
+                </div>
+                <ul class="profile-options horizontal-list">
+                    <li><a class="comments" href="#40"><p><span class="icon fontawesome-comment-alt scnd-font-color"></span>23</p></a></li>
+                    <li><a class="views" href="#41"><p><span class="icon fontawesome-eye-open scnd-font-color"></span>841</p></a></li>
+                    <li><a class="likes" href="#42"><p><span class="icon fontawesome-heart-empty scnd-font-color"></span>49</p></a></li>
+                </ul>
+            </div>
+{{--            <div class="tweets block"> <!-- TWEETS (MIDDLE-CONTAINER) -->--}}
+{{--                <h2 class="titular"><span class="icon zocial-twitter"></span>LATEST TWEETS</h2>--}}
+{{--                <div class="tweet first">--}}
+{{--                    <p>Ice-cream trucks only play music when out of ice-cream. Well played dad. On <a class="tweet-link" href="#17">@Quora</a></p>--}}
+{{--                    <p><a class="time-ago scnd-font-color" href="#18">3 minutes ago</a></p>--}}
+{{--                </div>--}}
+{{--                <div class="tweet">--}}
+{{--                    <p>We are in the process of pushing out all of the new CC apps! We will tweet again once they are live <a class="tweet-link" href="#19">#CreativeCloud</a></p>--}}
+{{--                    <p><a class="scnd-font-color" href="#20">6 hours ago</a></p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <ul class="social block"> <!-- SOCIAL (MIDDLE-CONTAINER) -->
+                <li><a href="#50"><div class="facebook icon"><span class="zocial-facebook"></span></div><h2 class="facebook titular">SHARE TO FACEBOOK</h2></a></li>
+                <li><a href="#51"><div class="twitter icon"><span class="zocial-twitter"></span></div><h2 class="twitter titular">SHARE TO TWITTER</h2></a></li>
+                <li><a href="#52"><div class="googleplus icon"><span class="zocial-googleplus"></span></div><h2 class="googleplus titular">SHARE TO GOOGLE+</h2></a></li>
+            </ul>
+        </div>
+
+        <!-- RIGHT-CONTAINER -->
+        <div class="right-container container">
+            <div class="join-newsletter block"> <!-- JOIN NEWSLETTER (RIGHT-CONTAINER) -->
+                <h2 class="titular">Подписать на рассылку</h2>
+                <div class="input-container">
+                    <input type="text" placeholder="yourname@gmail.com" class="email text-input">
+                    <div class="input-icon envelope-icon-newsletter"><span class="fontawesome-envelope scnd-font-color"></span></div>
+                </div>
+                <a class="subscribe button" href="#21">Подписать</a>
+            </div>
+            <div class="loading block"> <!-- LOADING (RIGHT-CONTAINER) -->
+                <div class="progress-bar downloading"></div>
+                <p><span class="icon fontawesome-cloud-download scnd-font-color"></span>Свободного места...</p>
+                <p class="percentage">81<sup>%</sup></p>
+                <div class="progress-bar uploading"></div>
+                <p><span class="icon fontawesome-cloud-upload scnd-font-color"></span>Свободной памяти...</p>
+                <p class="percentage">43<sup>%</sup></p>
+            </div>
+            <div class="calendar-day block"> <!-- CALENDAR DAY (RIGHT-CONTAINER) -->
+                <div class="arrow-btn-container">
+                    <a class="arrow-btn left" href="#200"><span class="icon fontawesome-angle-left"></span></a>
+                    <h2 class="titular"><?php
+                        $arr = [
+                            'Январь',
+                            'Февраль',
+                            'Март',
+                            'Апрель',
+                            'Май',
+                            'Июнь',
+                            'Июль',
+                            'Август',
+                            'Сентябрь',
+                            'Октябрь',
+                            'Ноябрь',
+                            'Декабрь'
+                        ];
+
+                        $month = date('n')-1;
+                        echo $arr[$month];
+                        ?></h2>
+                    <a class="arrow-btn right" href="#201"><span class="icon fontawesome-angle-right"></span></a>
+                </div>
+                <p class="the-day"><?php echo date('d') ?></p>
+                {{--            <a class="add-event button" href="#27">ADD EVENT</a>--}}
+            </div>
+        </div> <!-- end right-container -->
+    </div> <!-- end main-container -->
 
 @endsection

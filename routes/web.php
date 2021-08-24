@@ -36,3 +36,4 @@ Route::get('/about-us', 'BaseController@about_us')->name('about-us');
 Route::get('/contact', 'BaseController@contact')->name('contact');
 Route::get('/service/upravlenie-stroitelstvom', 'BaseController@funpage')->name('rute');
 Route::get('/service/upravlenie-stroitelstvom/organizacia', 'BaseController@rutePage')->name('rutes');
+Route::get('/sample', 'BaseController@sample')->name('sample');
